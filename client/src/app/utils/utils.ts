@@ -1,0 +1,15 @@
+export const categories = [
+        "Cosmética-Facial",
+        "Cosmética-Corporal",
+        "Cuidado-Capilar",
+        "Coloración-y-Tintura",
+        "Uñas-y-Manos",
+        "Perfumería",
+        "Instrumental-de-Peluquería",
+        "Cuidado-Personal",
+        "Higiene-Bucal",
+        "Pañales",
+        "Servilletas",
+        "Bebés",
+        "Otros",
+]
