@@ -63,10 +63,10 @@ const Sidebar = () => {
 
       {/* Links */}
       <div className='flex-grow mt-8'>
-        <SidebarLink href="/dashboard" icon={Layout} label="Dashboard" isCollapsed={isSidebarCollapsed}/>
-        <SidebarLink href="/inventory" icon={Archive} label="Inventory" isCollapsed={isSidebarCollapsed}/>
-        <SidebarLink href="/products" icon={Clipboard} label="Products" isCollapsed={isSidebarCollapsed}/>
-        <SidebarLink href="/sales" icon={CircleDollarSign} label="Sales" isCollapsed={isSidebarCollapsed}/>
+        <SidebarLink href="/dashboard" icon={Layout} label="Panel de Control" isCollapsed={isSidebarCollapsed}/>
+        <SidebarLink href="/inventory" icon={Archive} label="Inventario" isCollapsed={isSidebarCollapsed}/>
+        <SidebarLink href="/products" icon={Clipboard} label="Productos" isCollapsed={isSidebarCollapsed}/>
+        <SidebarLink href="/sales" icon={CircleDollarSign} label="Ventas" isCollapsed={isSidebarCollapsed}/>
       </div>
       {/* Footer */}
       <div>
