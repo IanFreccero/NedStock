@@ -1,11 +1,19 @@
 import mongoose from "mongoose";
 
+let isConnected = false; // Para recordar el estado de la conexión
+
 export const connectDB = async () => {
+  if (isConnected) {
+    console.log("🔁 Ya conectado a MongoDB");
+    return;
+  }
+
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log("Connected to MongoDB");
+    const db = await mongoose.connect(process.env.MONGODB_URI);
+    isConnected = !!db.connections[0].readyState;
+    console.log("✅ Conectado a MongoDB");
   } catch (error) {
-    console.error("Error with the MongoDb connection:", error.message);
-    process.exit(1);
+    console.error("❌ Error con la conexión a MongoDB:", error.message);
+    throw new Error("No se pudo conectar a la base de datos");
   }
 };

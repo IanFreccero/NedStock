@@ -188,7 +188,7 @@ const List = ({reload, setReload, products, page, setPage, totalPages}: {reload:
   </div>
 }
 
-const inventory = () => {
+const Inventory = () => {
   const [page, setPage] = useState(1)
   const [products, setProducts] = useState({
     totalPages: 0,
@@ -210,4 +210,4 @@ const inventory = () => {
   )
 }
 
-export default inventory
+export default Inventory

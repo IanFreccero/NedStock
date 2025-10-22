@@ -1,6 +1,6 @@
 "use client"
 
-import { PlusCircleIcon, SearchIcon } from 'lucide-react';
+import { PlusCircleIcon} from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import Header from '../(components)/Header';
 import axios from 'axios';

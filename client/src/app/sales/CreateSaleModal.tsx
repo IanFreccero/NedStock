@@ -96,7 +96,7 @@ const RigthSelector = ({formData, setFormData}: {formData: any, setFormData: Fun
 }
 
 const CreateSaleModal = ({ isOpen, onClose, onCreate} : any) => {
-  const [formData, setFormData] = useState([])
+  const [formData, setFormData] = useState<productType[]>([])
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
