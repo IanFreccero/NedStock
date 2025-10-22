@@ -1,7 +1,7 @@
 "use client"
 import { useAppDispatch, useAppSelector } from '@/app/redux'
 import { setIsSidebarCollapsed } from '@/state'
-import { Archive, CircleDollarSign, Clipboard, Layout, LucideIcon, Menu, SlidersHorizontal, User } from 'lucide-react'
+import { Archive, CircleDollarSign, Clipboard, Layout, LucideIcon, Menu, SlidersHorizontal } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
@@ -52,7 +52,7 @@ const Sidebar = () => {
     <div className={sidebarClassNames}>
       {/* Top Logo */}
       <div className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${isSidebarCollapsed ? "px-2" : "px-8"}`}>
-        <img src={`/nedStockLogo.png`} className='size-12'></img>
+        <img src={`/nedStockLogo.png`} className='h-11 w-12'></img>
         <h1 className={`font-extrabold text-2xl ${isSidebarCollapsed ? "hidden" : "block"} `}>NedStock</h1>
         <button className='md:hidden px-3 py-3 rounded-lg hover:bg-neutral-700'
           onClick={toggleSidebar}
@@ -66,9 +66,7 @@ const Sidebar = () => {
         <SidebarLink href="/dashboard" icon={Layout} label="Dashboard" isCollapsed={isSidebarCollapsed}/>
         <SidebarLink href="/inventory" icon={Archive} label="Inventory" isCollapsed={isSidebarCollapsed}/>
         <SidebarLink href="/products" icon={Clipboard} label="Products" isCollapsed={isSidebarCollapsed}/>
-        <SidebarLink href="/users" icon={User} label="Users" isCollapsed={isSidebarCollapsed}/>
-        <SidebarLink href="/settings" icon={SlidersHorizontal} label="Settings" isCollapsed={isSidebarCollapsed}/>
-        <SidebarLink href="/expenses" icon={CircleDollarSign} label="Expenses" isCollapsed={isSidebarCollapsed}/>
+        <SidebarLink href="/sales" icon={CircleDollarSign} label="Sales" isCollapsed={isSidebarCollapsed}/>
       </div>
       {/* Footer */}
       <div>

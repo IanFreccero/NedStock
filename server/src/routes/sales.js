@@ -26,6 +26,7 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ message: "La venta debe incluir al menos un producto" });
   }
 
+
   // Actualizar el sumario de ventas
   let summary = await SalesSummary.findOne().sort({ month: -1 }).limit(1);
   if (!summary) {
@@ -65,14 +66,15 @@ router.post("/", async (req, res) => {
   }
 
   for (const item of newSale.products) {
-    
     const existing = productSale.products.find(
-      (p) => p.productId && p.productId.toString() === item.productId.toString()
+      (p) => p.productId && p.productId.toString() === item.productId.toString() 
     );
+    console.log("existing: ", existing);
 
     if (existing) {
       existing.count += item.quantity;
-      unitPrice = item.unitPrice;
+      existing.unitPrice = item.unitPrice;
+
     } else {
       productSale.products.push({
         productId: item.productId,
@@ -81,14 +83,12 @@ router.post("/", async (req, res) => {
       });
     }
   }
-
   await productSale.save();
-      
   await newSale.save();
+  res.status(201).json(newSale);
   } catch (error) {
     return res.status(500).json({ error: "Error al crear la venta" });
   }
-  res.status(201).json(newSale);
 });
 
 export default router;

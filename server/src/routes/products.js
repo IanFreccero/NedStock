@@ -45,6 +45,11 @@ router.get("/category/:category/page/:page", async (req, res) => {
   }
 });
 
+router.get("/search/:search", async (req, res) => {
+  const products = await Product.find({ name: { $regex: req.params.search, $options: "i" } }).limit(50)
+  res.json(products)
+})
+
 // Obtener productos con menos de 10 de stock
 router.get("/low-stock", async (req, res) => {
   try {
@@ -88,5 +93,16 @@ router.patch("/:id", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedProduct = await Product.findByIdAndDelete(
+      req.params.id
+    )
+    return res.status(200).json(deletedProduct)
+  } catch (error) {
+    res.status(400).json({ message: error.message})
+  }
+})
 
 export default router;

@@ -11,6 +11,39 @@ html, body, #root, .app {
   width: 100%;
   @apply text-sm bg-black text-gray-100;
 }
+@layer utilities {
+  /* Scrollbar base */
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
 
-@import "tailwindcss";
+  /* Fondo del scrollbar */
+  .scrollbar::-webkit-scrollbar-track {
+    background: #0c0c0c50; /* gray-800 */
+    border-radius: 9999px; /* rounded-full */
+  }
 
+  /* Pulgar (scroll handle) */
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #3f3f3f98;
+    border-radius: 9999px; /* rounded-full */
+  }
+
+  /* Hover del pulgar */
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #5a5a5a;
+  }
+}
+
+@layer components {
+  .no-spinner::-webkit-inner-spin-button,
+  .no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .no-spinner[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
